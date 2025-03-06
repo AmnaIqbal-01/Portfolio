@@ -39,18 +39,17 @@ const About = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <h2 className={styles.sectionHeadText}>Overview</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        className="mt-[-20px]"
       >
-        I'm a skilled backend developer with expertise in PHP Laravel, and I
-        also have experience in React.js and mobile development. I'm a quick
-        learner who collaborates closely with clients to create efficient,
-        scalable, and user-friendly solutions that address real-world
-        challenges. Let's work together to turn your ideas into reality!
+        Full-Stack Developer with a strong background in PHP Laravel, 
+        React.js, and mobile platforms including Android Kotlin and SwiftUI.
+        Dedicated to crafting scalable, user-centric solutions that transform ideas
+        into functional realities.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

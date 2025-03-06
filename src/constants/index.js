@@ -35,19 +35,24 @@ import {
     //   id: "contact",
     //   title: "Contact",
     // },
+    {
+      id: "contact",
+      title: "Contact",
+      link: "mailto:amnaiqbal.01c@gmail.com",  // Adding a mailto link for direct email
+    },
   ];
   
   const services = [
     {
-      title: "PhP Laravel Developer",
+      title: "PhP Laravel",
       icon: web,
     },
     {
-      title: "React Js Developer",
+      title: "React Js",
       icon: mobile,
     },
     {
-      title: "Backend Developer",
+      title: "SwiftUI",
       icon: backend,
     },
     {
