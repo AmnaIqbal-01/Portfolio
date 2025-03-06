@@ -44,7 +44,7 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-[-20px]"
+        className="mt-[-5px]"
       >
         Full-Stack Developer with a strong background in PHP Laravel, 
         React.js, and mobile platforms including Android Kotlin and SwiftUI.
