@@ -115,7 +115,7 @@ import {
       iconBg: "#383E56",
       date: "Feb 2024 - Present",
       points: [
-        "Developing and maintaining backend systems using Laravel PHP framework for various projects like RealHorse, 42Appen, and Handshake.",
+        "Developing and maintaining backend systems using Laravel PHP framework for various projects.",
         "Implementing authentication systems, including email verification and password reset functionalities.",
         "Integrating third-party services such as payment gateways, external APIs, and other integrations.",
         "Building and optimizing cron jobs for automating recurring tasks and processes.",
