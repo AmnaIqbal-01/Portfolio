@@ -40,6 +40,11 @@ import {
       title: "Contact",
       link: "mailto:amnaiqbal.01c@gmail.com",  // Adding a mailto link for direct email
     },
+    {
+      id: "medium",
+      title: "Medium",
+      link: "https://medium.com/@amnaiqbal.01c", 
+    }
   ];
   
   const services = [
@@ -109,11 +114,25 @@ import {
   
   const experiences = [
     {
+      title: "IOS DEVELOPER",
+      company_name: "TBOX",
+      icon: starbucks,
+      iconBg: "#383E56",
+      date: "Feb 2025 - Present",
+      points: [
+        "Developed and maintained iOS applications using Swift/SwiftUI, implementing features such as Google Maps integration, ad services, third-party SDKs, and whitelabel customizations to support multiple clients.",
+        "Managed App Store releases end-to-end by generating builds, configuring signing/provisioning profiles, and submitting updates, ensuring smooth deployment pipelines.",
+        "Enhanced app quality through localization, debugging, and testing, improving user experience across multiple regions and devices while monitoring performance issues using Sentry.",
+        "Collaborated with design and QA teams to deliver polished UIs, optimize workflows, and ensure consistent performance across modules."
+
+      ],
+    },
+    {
       title: "PhP Laravel Developer",
       company_name: "TBOX",
       icon: starbucks,
       iconBg: "#383E56",
-      date: "Feb 2024 - Present",
+      date: "Feb 2024 - Feb 2025",
       points: [
         "Developing and maintaining backend systems using Laravel PHP framework for various projects.",
         "Implementing authentication systems, including email verification and password reset functionalities.",

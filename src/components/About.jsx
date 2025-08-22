@@ -46,10 +46,10 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-[-5px]"
       >
-        Full-Stack Developer with a strong background in PHP Laravel, 
-        React.js, and mobile platforms including Android Kotlin and SwiftUI.
-        Dedicated to crafting scalable, user-centric solutions that transform ideas
-        into functional realities.
+        Full-stack and mobile developer with hands-on experience in iOS (Swift/SwiftUI), Android (Kotlin), and web 
+technologies (Laravel, React.js, PHP, SQL). Skilled in developing cross-platform applications, designing scalable 
+backend systems, and delivering seamless, high-quality user experiences. Passionate about building impactful 
+products and contributing to collaborative engineering teams
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">
