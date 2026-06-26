@@ -1,4 +1,5 @@
-import {Tilt} from "react-tilt";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -7,8 +8,9 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
+const CARD_GAP = 28;
+
 const ProjectCard = ({
-  index,
   name,
   description,
   tags,
@@ -17,9 +19,9 @@ const ProjectCard = ({
   category,
 }) => {
   return (
-    <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-      className='h-full'
+    <div
+      data-project-card
+      className='w-[320px] sm:w-[360px] shrink-0 h-full'
     >
       <Tilt
         options={{
@@ -77,7 +79,116 @@ const ProjectCard = ({
           ))}
         </div>
       </Tilt>
-    </motion.div>
+    </div>
+  );
+};
+
+const InfiniteProjectCarousel = () => {
+  const scrollRef = useRef(null);
+  const isLooping = useRef(false);
+
+  const loopedProjects = useMemo(
+    () => [
+      ...projects.map((project, index) => ({
+        ...project,
+        loopKey: `set-a-${index}`,
+      })),
+      ...projects.map((project, index) => ({
+        ...project,
+        loopKey: `set-b-${index}`,
+      })),
+      ...projects.map((project, index) => ({
+        ...project,
+        loopKey: `set-c-${index}`,
+      })),
+    ],
+    []
+  );
+
+  const getSetWidth = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container) return 0;
+
+    const card = container.querySelector("[data-project-card]");
+    if (!card) return 0;
+
+    const cardWidth = card.getBoundingClientRect().width;
+    return projects.length * cardWidth + (projects.length - 1) * CARD_GAP;
+  }, []);
+
+  const normalizeScroll = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container || isLooping.current) return;
+
+    const setWidth = getSetWidth();
+    if (!setWidth) return;
+
+    if (container.scrollLeft < setWidth) {
+      isLooping.current = true;
+      container.style.scrollBehavior = "auto";
+      container.scrollLeft += setWidth;
+      container.style.scrollBehavior = "";
+      isLooping.current = false;
+    } else if (container.scrollLeft >= setWidth * 2) {
+      isLooping.current = true;
+      container.style.scrollBehavior = "auto";
+      container.scrollLeft -= setWidth;
+      container.style.scrollBehavior = "";
+      isLooping.current = false;
+    }
+  }, [getSetWidth]);
+
+  useLayoutEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const initScroll = () => {
+      const setWidth = getSetWidth();
+      if (setWidth) {
+        container.scrollLeft = setWidth;
+      }
+    };
+
+    initScroll();
+    requestAnimationFrame(initScroll);
+  }, [getSetWidth]);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => normalizeScroll();
+
+    const handleResize = () => {
+      const setWidth = getSetWidth();
+      if (!setWidth) return;
+
+      const relativeOffset = container.scrollLeft % setWidth;
+      container.scrollLeft = setWidth + relativeOffset;
+    };
+
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    container.addEventListener("scrollend", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+      container.removeEventListener("scrollend", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [getSetWidth, normalizeScroll]);
+
+  return (
+    <div
+      ref={scrollRef}
+      className='projects-scroll px-6 sm:px-16 pb-4'
+    >
+      <div className='flex gap-7 w-max items-stretch'>
+        {loopedProjects.map((project) => (
+          <ProjectCard key={project.loopKey} {...project} />
+        ))}
+      </div>
+    </div>
   );
 };
 
@@ -99,11 +210,12 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 items-stretch'>
-        {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
-        ))}
-      </div>
+      <motion.div
+        variants={fadeIn("", "", 0.2, 1)}
+        className='mt-20 -mx-6 sm:-mx-16'
+      >
+        <InfiniteProjectCarousel />
+      </motion.div>
     </>
   );
 };
