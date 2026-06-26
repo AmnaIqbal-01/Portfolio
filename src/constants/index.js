@@ -16,9 +16,11 @@ import {
     starbucks,
     tesla,
     shopify,
-    carrent,
-    jobit,
-    tripguide,
+    mobilityPlatform,
+    motionTrace,
+    financeApp,
+    ecommerceApp,
+    movieExplorer,
     threejs,
   } from "../assets";
   
@@ -31,6 +33,10 @@ import {
       id: "work",
       title: "Work",
     },
+    {
+      id: "projects",
+      title: "Projects",
+    },
     // {
     //   id: "contact",
     //   title: "Contact",
@@ -39,6 +45,11 @@ import {
       id: "contact",
       title: "Contact",
       link: "mailto:amnaiqbal.01c@gmail.com",  // Adding a mailto link for direct email
+    },
+    {
+      id: "linkedin",
+      title: "LinkedIn",
+      link: "https://www.linkedin.com/in/amnaiqbal01/",
     },
     {
       id: "medium",
@@ -216,67 +227,75 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Smart Mobility Platform",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Large-scale white-label iOS platform for connected mobility services. Users discover service locations on interactive maps, manage real-time sessions, process payments via Stripe, track usage history, and receive live status updates. Multiple branded App Store apps share one codebase with custom themes, client configs, and feature toggles.",
       tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "mongodb",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
+        { name: "swift", color: "blue-text-gradient" },
+        { name: "uikit", color: "green-text-gradient" },
+        { name: "corelocation", color: "pink-text-gradient" },
+        { name: "stripe", color: "blue-text-gradient" },
+        { name: "apns", color: "green-text-gradient" },
+         { name: "googleMaps", color: "pink-text-gradient" },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: mobilityPlatform,
+      category: "Client Project",
     },
     {
-      name: "Job IT",
+      name: "MotionTrace",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Native iOS app for video-based movement analysis. Users record or import footage, review interactive charts and metrics with baseline comparisons, and export professional PDF reports with offline sync across devices. Contributed to video capture pipeline, SwiftUI analytics dashboards, Core Data sync, subscriptions, shared access, and in-app messaging.",
       tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "restapi",
-          color: "green-text-gradient",
-        },
-        {
-          name: "scss",
-          color: "pink-text-gradient",
-        },
+        { name: "swift", color: "blue-text-gradient" },
+        { name: "swiftui", color: "green-text-gradient" },
+        { name: "coredata", color: "pink-text-gradient" },
+        { name: "avfoundation", color: "blue-text-gradient" },
+        { name: "firebase", color: "green-text-gradient" },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: motionTrace,
+      category: "Client Project",
     },
     {
-      name: "Trip Guide",
+      name: "Personal Finance App",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "SwiftUI-based finance app for tracking income, expenses, and financial planning with interactive dashboards. Built offline-first with Core Data, cash flow forecasting, budget alerts, local notifications, subscription premium tiers, and ad-supported monetization using MVVM and Combine.",
       tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
-          color: "green-text-gradient",
-        },
-        {
-          name: "css",
-          color: "pink-text-gradient",
-        },
+        { name: "swiftui", color: "blue-text-gradient" },
+        { name: "coredata", color: "green-text-gradient" },
+        { name: "combine", color: "pink-text-gradient" },
+        { name: "storekit", color: "blue-text-gradient" },
+        { name: "charts", color: "green-text-gradient" },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: financeApp,
+      category: "Client Project",
+    },
+    {
+      name: "E-Commerce Mobile App",
+      description:
+        "Native iOS e-commerce application for browsing products, managing carts, and completing secure checkout with a regional banking payment gateway. Integrated Yandex Maps for store discovery, delivery address selection, route visualization, and real-time order tracking with push notifications.",
+      tags: [
+        { name: "swift", color: "blue-text-gradient" },
+        { name: "yandexmaps", color: "green-text-gradient" },
+        { name: "restapi", color: "pink-text-gradient" },
+        { name: "payments", color: "blue-text-gradient" },
+        { name: "mvvm", color: "green-text-gradient" },
+      ],
+      image: ecommerceApp,
+      category: "Client Project",
+    },
+    {
+      name: "Movie Explorer",
+      description:
+        "Production-quality SwiftUI iOS app for exploring trending movies and searching TMDB's catalogue. Features refreshable trending cards, debounced live search with shimmer skeletons, parallax movie detail views, UserDefaults-backed favourites with swipe-to-delete, retry error states, and full dark/light mode. Built with MVVM, async/await networking, and type-safe NavigationStack routing.",
+      tags: [
+        { name: "swiftui", color: "blue-text-gradient" },
+        { name: "mvvm", color: "green-text-gradient" },
+        { name: "tmdb", color: "pink-text-gradient" },
+        { name: "asyncawait", color: "blue-text-gradient" },
+        { name: "swift", color: "green-text-gradient" },
+      ],
+      image: movieExplorer,
+      category: "Personal Project",
     },
   ];
   

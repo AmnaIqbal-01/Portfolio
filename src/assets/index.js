@@ -30,6 +30,12 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
+import mobilityPlatform from "./projects/mobility-platform.png";
+import motionTrace from "./projects/motiontrace.png";
+import financeApp from "./projects/finance-app.png";
+import ecommerceApp from "./projects/ecommerce-app.png";
+import movieExplorer from "./projects/movie-explorer.png";
+
 export {
   logo,
   backend,
@@ -59,4 +65,9 @@ export {
   carrent,
   jobit,
   tripguide,
+  mobilityPlatform,
+  motionTrace,
+  financeApp,
+  ecommerceApp,
+  movieExplorer,
 };
